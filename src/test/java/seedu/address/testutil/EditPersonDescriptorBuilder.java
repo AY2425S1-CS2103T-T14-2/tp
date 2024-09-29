@@ -81,6 +81,10 @@ public class EditPersonDescriptorBuilder {
         return this;
     }
 
+    public EditPersonDescriptorBuilder withRemark(String remark) {
+        return this;
+    }
+
     public EditPersonDescriptor build() {
         return descriptor;
     }

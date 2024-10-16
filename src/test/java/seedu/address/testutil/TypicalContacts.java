@@ -4,12 +4,12 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_INDUSTRY_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_STUDENTID_AMY;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_STUDENTID_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_MADE_PAYMENT;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_YEAR1;
 
@@ -57,8 +57,8 @@ public class TypicalContacts {
             .withStudentID(VALID_STUDENTID_AMY)
             .withPhone(VALID_PHONE_AMY)
             .withEmail(VALID_EMAIL_AMY).withAddress(VALID_ADDRESS_AMY).withTags(VALID_TAG_MADE_PAYMENT).build();
-    public static final Student BOB = new StudentBuilder().withName(VALID_NAME_BOB)
-            .withStudentID(VALID_STUDENTID_BOB)
+    public static final Company BOB = new CompanyBuilder().withName(VALID_NAME_BOB)
+            .withIndustry(VALID_INDUSTRY_BOB)
             .withPhone(VALID_PHONE_BOB)
             .withEmail(VALID_EMAIL_BOB).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_YEAR1, VALID_TAG_MADE_PAYMENT)
             .build();

@@ -57,4 +57,12 @@ public class PersonListPanel extends UiPart<Region> {
             }
         }
     }
+
+    /**
+     * Returns the ListView for adding selection listeners in MainWindow.
+     */
+    public ListView<Person> getPersonListView() {
+        return personListView;
+    }
+
 }

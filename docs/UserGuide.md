@@ -190,7 +190,7 @@ Adds a student to AdmiNUS.
 student n/NAME id/STUDENT_ID p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​
 ```
 
-**Expected Message**: 
+**Expected message**: 
 ```
 New student added: (details of the student added)
 ```
@@ -228,7 +228,7 @@ Adds a company to AdmiNUS.
 company n/NAME i/INDUSTRY p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​`
 ```
 
-**Expected Message**:
+**Expected message**:
 
 ```
 New company added: (details of the company added)
@@ -274,7 +274,7 @@ Edits an existing contact in AdmiNUS.
 edit INDEX [n/NAME] [id/STUDENT_ID] [i/INDUSTRY] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]…​
 ```
 
-**Expected Message**:
+**Expected message**:
 
 ```
 Edited Person: (details of the updated contact)
@@ -326,7 +326,7 @@ Deletes the contact(s) at the specified indices or all contacts currently shown 
 
 **Format 1**: `delete INDEX [MORE_INDEX]…​` 
 
-**Expected Message**: 
+**Expected message**: 
 
 ```
 Deleted Contacts: 
@@ -394,6 +394,11 @@ Finds persons whose names contain any of the given keywords.
 
 **Format**: `find KEYWORD [MORE_KEYWORDS]…​`
 
+**Expected message**:
+```
+n persons listed (where n represents the number of contacts whose names match the specified keyword(s))
+```
+
 | Parameter Name | Description   | Constraint                    | Required   |
 |----------------|-----------------------|-------------------------------|------------|
 | `KEYWORD`      | Keyword of the contact's name to search | Can take any values           | Compulsory |
@@ -411,7 +416,7 @@ Finds persons whose names contain any of the given keywords.
 
 - Only full words will be matched e.g. `Han` will not match `Hans`.
 
-- Persons matching at least one keyword will be returned (i.e. `OR` search). <br>
+- Contacts matching at least one keyword will be returned (i.e. `OR` search). <br>
   e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`.
 
 </div>
@@ -526,7 +531,7 @@ Deletes the specified tag(s) from the specified contact.
 |----------------|----------------------------------------------|------------|
 | `INDEX`        | Index number of the contact to delete tag    | Compulsory |
 | `t/TAG`        | Tag to be deleted from the specified contact | Compulsory |
-| `t/MORE_TAG` | More tags to be deleted                      | Optional|
+| `t/MORE_TAG` | More tags to be deleted                      | Optional   |
 
 <div markdown="block" class="alert alert-info">
 
@@ -625,30 +630,57 @@ Furthermore, certain edits can cause AdmiNUS to behave in unexpected ways (e.g.,
 
 ## Glossary
 
-- **_Absolute Path_** : A full path that specifies the exact location of a file or directory from the root of the file system.
+- **_Absolute Path_**: A full path that specifies the exact location of a file or directory from the root of the file system.
 <a name="case-insensitive"></a>
 - **_Case-Insensitive_**: A term used to describe a system where uppercase and lowercase letters are treated as the same. For example, Apple, apple, and APPLE would be considered equivalent values.
 <a name="case-sensitive"></a>
 - **_Case-Sensitive_**: A term used to describe a system where uppercase and lowercase letters are treated as distinct. For example, Apple, apple, and APPLE would be considered different values.
-- **_Category_** : A label that represents the type of contact (e.g., student, company) used for filtering and sorting contacts.
-- **_CLI (Command Line Interface)_** : A text-based user interface through which users interact with the application by typing commands.
-- **_CSV (Comma-separated values)_** : A text file format that uses commas to separate values, and newlines to separate records.
-- **_GUI (Graphical User Interface)_** : The part of the application that users interact with, which includes graphical components like command boxes and task lists.
+- **_Category_**: A label that represents the type of contact (e.g., student, company) used for filtering and sorting contacts.
+- **_CLI (Command Line Interface)_**: A text-based user interface through which users interact with the application by typing commands.
+- **_CSV (Comma-separated values)_**: A text file format that uses commas to separate values, and newlines to separate records.
+- **_GUI (Graphical User Interface)_**: The part of the application that users interact with, which includes graphical components like command boxes and task lists.
 <a name="nus-club-admin"></a>
-- **_NUS Club Administrator_** : An NUS club admin user responsible for managing contacts of students, companies, etc.
+- **_NUS Club Administrator_**: An NUS club admin user responsible for managing contacts of students, companies, etc.
 <a name="parameter-like-sequence"></a>
 - **_Parameter-like Sequence_**: A combination of a forward slash (`/`) and a single character that resembles the prefixes used in commands (e.g., `n/`, `p/`, `e/`). These are used to specify input fields in commands and should not appear in any text fields.
-- **_Relative Path_** : A file path that is relative to the current working directory of the user or application.
-- **_Student ID_** : The student ID associated with each student in NUS. It has the format AxxxxxxxX (e.g. A0123456Z).
-- **_Tag_** : A keyword or label associated with a contact that allows for easy grouping and filtering.
+- **_Relative Path_**: A file path that is relative to the current working directory of the user or application.
+- **_Student ID_**: The student ID associated with each student in NUS. It has the format AxxxxxxxX (e.g. A0123456Z).
+- **_Tag_**: A keyword or label associated with a contact that allows for easy grouping and filtering.
 
 ---
 
 ## FAQ
 
-**Q**: How do I transfer my data to another computer?<br>
-**A**: Install the app on the new computer, then replace its default data file with the data file from your previous AdmiNUS home folder.<br>
-**Alternative Option**: Export your data to a CSV file from the original computer and import it on the new computer using the import command.
+**Q: How do I transfer my data to another computer?**  
+A: Install the app on the new computer, then replace its default data file with the data file from your previous AdmiNUS home folder. Alternatively, export your data to a CSV file from the original computer using the [export command](#exporting-csv-files-export) and import it on the new computer using the [import command](#importing-csv-files-import).
+
+**Q: How do I back up my AdmiNUS data?**  
+A: The data is saved automatically in a JSON file located in the `[JAR file location]/data/addressbook.json`. You can make a backup by copying this file to a safe location. Alternatively, you can export your data to a CSV file using the [export command](#exporting-csv-files-export).
+
+**Q: Can I use AdmiNUS without Java installed on my computer?**  
+A: No, AdmiNUS requires Java 17 or above to run. You need to ensure that the correct version of Java is installed before using the application.
+
+**Q: Is there a way to undo a deletion?**  
+A: Currently, there is no built-in undo function. Once a contact is deleted using the `delete` command, it cannot be recovered unless you have a backup of your data file.
+
+**Q: Why can't I add a student with the same Student ID?**  
+A: Each student in AdmiNUS must have a unique Student ID. If you try to add a student with an existing Student ID, the system will reject the new entry. Make sure to verify the ID before adding a new student.
+
+**Q: I get an error message saying "Invalid path" when importing a CSV. What should I do?**  
+A: This error can occur if the file path you specified is incorrect or if the file doesn’t exist. Ensure you are using a valid absolute or relative path and that the file is present in the directory. If you are on Windows, remember to use double backslashes (`\\`) in the file path.
+
+**Q: Can I edit the data file manually?**  
+A: Yes, advanced users can manually edit the `addressbook.json` file where data is saved. However, any incorrect modification may cause data loss or unexpected behavior in the application. Always make a backup before editing.
+
+**Q: Why are my tags disappearing when I edit a contact?**  
+A: When editing a contact, if you use the `t/` parameter without specifying new tags, all existing tags will be removed. To retain the tags, include all desired tags in the `edit` command.
+
+**Q: What should I do if AdmiNUS opens off-screen after using multiple monitors?**  
+A: This can happen if you move the application to a secondary screen and then disconnect that monitor. To resolve this, delete the `preferences.json` file generated by AdmiNUS, and the app will reset its position to the primary screen.
+
+**Q: How do I efficiently delete multiple contacts?**  
+A: You can use the `delete INDEX [MORE_INDEX]…​` command to delete multiple contacts by specifying their indices. If you want to delete all contacts displayed after a filter operation, use `delete all`. Be careful with this command as it cannot be undone.
+
 
 ---
 

@@ -26,7 +26,7 @@ public abstract class Command {
     public abstract CommandResult execute(Model model) throws CommandException;
 
     /**
-     * Checks if the command can be executed on the contact list.
+     * Checks if the contact list is non-empty so that the command can be executed.
      * @param model {@code Model} which the command should operate on.
      * @param message Message for the exception thrown
      * @throws CommandException If a command is attempted to be executed on an empty contact list.

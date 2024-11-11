@@ -142,6 +142,12 @@ Pops up a window, where there is a link to the user guide for the user to easily
 
 **Format**: `helpwindow`
 
+**Expected message**:
+
+```
+Showing list of possible commands on the right.
+```
+
 ![](images/helpWindowUI.png)
 
 
@@ -151,6 +157,11 @@ Shows a list of all persons in AdmiNUS.
 
 **Format**: `list`
 
+**Expected message**:
+
+```
+For more information, please head to the user guide.
+```
 
 #### Viewing a contact: `view`
 
@@ -360,7 +371,7 @@ Deleted Contacts:
 
 <div markdown="span" class="alert alert-primary">💡 **Tip**:
 
-To delete all students with the `oneYearMembership` tag, simply use `filtertag t/oneYearMembership` followed by `delete all`
+To delete all students with the `oneYearMembership` tag, simply use `filtertag oneYearMembership` followed by `delete all`
  </div>
 
 **Examples**:
@@ -700,17 +711,17 @@ A: You can use the `delete INDEX [MORE_INDEX]…​` command to delete multiple 
 | **Add a student** | `student n/NAME id/STUDENT_ID p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​`                           | `student n/James Ho id/A0123456X p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague` |
 | **Add a company** | `company n/NAME i/INDUSTRY p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​`                              | `company n/Newgate Prison i/Security e/newgateprison@example.com a/Newgate Prison p/1234567 t/prison facility`      |
 | **Clear**         | `clear`                                                                                             | `clear`                                                                                                             |
-| **Delete**        | `delete INDEX [MORE_INDEX]`                                                                         | `delete 3` or `delete 2 4`                                                                                          |
+| **Delete**        | `delete INDEX [MORE_INDEX]…​`                                                                         | `delete 3` or `delete 2 4`                                                                                          |
 | **Edit**          | `edit INDEX [n/NAME] [id/STUDENT_ID] [i/INDUSTRY] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…​` | `edit 2 n/James Lee e/jameslee@example.com`                                                                         |
-| **Filtertag**     | `filtertag KEYWORD [MORE_KEYWORDS]`                                                                 | `filtertag bestie` or `filtertag bestie slay`                                                                       |
-| **Find**          | `find KEYWORD [MORE_KEYWORDS]`                                                                      | `find James Jake`                                                                                                   |
+| **Filtertag**     | `filtertag KEYWORD [MORE_KEYWORDS]…​`                                                                 | `filtertag bestie` or `filtertag bestie slay`                                                                       |
+| **Find**          | `find KEYWORD [MORE_KEYWORDS]…​`                                                                      | `find James Jake`                                                                                                   |
 | **List**          | `list`                                                                                              | `list`                                                                                                              |
 | **Help**          | `help`                                                                                              | `help`                                                                                                              |
 | **Help Window**   | `helpwindow`                                                                                        | `helpwindow`                                                                                                        |
 | **Track**         | `track CATEGORY`                                                                                    | `track student`                                                                                                     |
 | **View**          | `view INDEX`                                                                                        | `view 1`                                                                                                            |
-| **Add tag**       | `tag INDEX t/TAG [t/MORE_TAG]`                                                                      | `tag 1 t/year2 t/computerScience`                                                                                   |
-| **Delete tag**    | `deletetag INDEX t/TAG [t/MORE_TAG]`                                                                | `deletetag 1 t/senior t/Y2` or `deletetag all t/senior t/Y2`                                                        |
+| **Add tag**       | `tag INDEX t/TAG [t/MORE_TAG]…​`                                                                      | `tag 1 t/year2 t/computerScience`                                                                                   |
+| **Delete tag**    | `deletetag INDEX t/TAG [t/MORE_TAG]…​`                                                                | `deletetag 1 t/senior t/Y2` or `deletetag all t/senior t/Y2`                                                        |
 | **Import CSV**    | `import FILE_PATH`                                                                                  | `import C:\Users\user\data\File.csv` or `import data/File.csv`                                                      |
 | **Export CSV**    | `export FILE_PATH`                                                                                  | `export C:\Users\user\data\File.csv` or `import data/File.csv`                                                      |
 | **Exit**          | `exit`                                                                                              | `exit`                                                                                                              |

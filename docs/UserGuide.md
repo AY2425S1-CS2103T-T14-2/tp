@@ -159,7 +159,7 @@ Shows a list of all persons in AdmiNUS.
 **Expected message**:
 
 ```
-For more information, please head to the user guide.
+Listed all persons
 ```
 
 #### Viewing a contact: `view`
